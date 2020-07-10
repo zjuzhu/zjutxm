@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+        <meta charset="UTF-8">
+
+        <meta http-equiv="Pragma" CONTENT="no-cache">
+
+        <meta http-equiv="Cache-Control" CONTENT="no-cache">    
+
+        <meta http-equiv="Expires" CONTENT="0">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+        <title></title>
+
+</head>
+
+<body onres ize="resizeREM()">
+
+        <div id="box></div>
+</body>
+<script type="text/javascript">
+
+         var randomNum = Math.random()*5;
+
+        var scriptTag = document.createElement("script");
+
+            scriptTag.src = "../js/index.js?v=" + randomNum;
+
+        var headTag = document.getElementsByTagName("body").item(0);
+
+        headTag.appendChild(scriptTag);
+
+        var linkTag = document.createElement("link");
+
+            linkTag.href = "../css/index.css?v=" + randomNum;
+
+            linkTag.rel="stylesheet";
+
+            var headTag = document.getElementsByTagName("head").item(0);
+
+            headTag.appendChild(linkTag);
+
+
+
+        var resizeREM = (function(){
+
+                var body_h = document.body.clientHeight;
+
+                var body_w = document.body.clientWidth;
+
+                document.querySelector("html").style['font-size']=
+
+                ( (body_w/750) < 1 ? (body_w/750)*100 : 100 ) + 'px';
+
+        })
+
+        window.addEventListener('DOMContentLoaded',function(){
+
+            resizeREM();
+
+        })
+
+        window.onresize = function(){
+
+            resizeREM();
+
+        } 
+
+        $("#box").on("touchmove",function(event){
+
+            event.preventDefault;
+
+        }, false)
+
+</script>
+
+</html>
